@@ -24,16 +24,16 @@ public class BundleUtilities {
 	 *            the key
 	 * @return the param
 	 */
-	public static String getParam(String bundleName, String key) {
+	public static String getParam(String ibundleName, String ikey) {
 		try {
-			ResourceBundle bundle = ResourceBundle.getBundle(bundleName);
+			ResourceBundle bundle = ResourceBundle.getBundle(ibundleName);
 
-			String ret = bundle.getString(key);
+			String ret = bundle.getString(ikey);
 
 			return ret;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return key;
+			return ikey;
 		}
 	}
 }

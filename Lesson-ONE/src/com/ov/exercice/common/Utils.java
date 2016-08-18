@@ -16,8 +16,8 @@ public class Utils {
 	 * @param url
 	 * @return
 	 */
-	public static String toBase64(String url) {
-		return Base64.getUrlEncoder().encodeToString(url.getBytes());
+	public static String toBase64(String iurl) {
+		return Base64.getUrlEncoder().encodeToString(iurl.getBytes());
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class Utils {
 			JSONArray jsonArray = (JSONArray) jsonObject.get(key);
 			return jsonArray;
 		} catch (Exception e) {
-			System.out.println("Error in parsing json string to json array");
+			System.out.println(BundleUtilities.getParam(Constants.sSystemConfig, "msg.error.parse"));
 			return null;
 		}
 	}
