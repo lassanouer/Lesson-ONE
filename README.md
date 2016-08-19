@@ -1,7 +1,7 @@
 # Lesson-ONE
 
 /*
- * Consigne:
+ * Consigne To Do:
  * 1 - S'imprégner des coding conventions openvalue du  fichier OVCodingConvention.java
  * 2 - Enregistrez vous sur https://data.sncf.com/api (http://www.navitia.io/register/) pour récupérer une clé d'API.
  * 3 - Le code de l'exercice se trouve dans src.com.ov.exercice.sncf.gettrajets.java
