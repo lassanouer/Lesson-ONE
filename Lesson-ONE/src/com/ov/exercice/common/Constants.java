@@ -1,13 +1,13 @@
 package com.ov.exercice.common;
 
 /**
- * Cette classe contient l'ensemble des constantes utilisées dans ce projet
+ * Cette classe contient l'ensemble des constantes utilisÃ©es dans ce projet
  */
 
 public class Constants {
 
 	/*
-	 * Config file
+	 * Path to file
 	 */
 	public static final String sSystemConfig = "config";
 
