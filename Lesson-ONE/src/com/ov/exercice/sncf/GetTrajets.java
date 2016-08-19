@@ -13,11 +13,11 @@ import com.ov.exercice.common.Utils;
 
 /**
  * Consigne: Enregistrez vous sur https://data.sncf.com/api
- * (http://www.navitia.io/register/) pour récupérer une clé d'API. Ce code va
- * servir à récupérer les horaires de trains au départ de montparnasse. Puis
- * ensuite les afficher sous forme Heure : destination Vous utiliserez votre clé
- * dans l'url d'appel de l'API. Il ne respecte pas les standards et doit être
- * nettoyé puis refactoré pour être réutilisable et compréhensible.
+ * (http://www.navitia.io/register/) pour rÃ©cupÃ©rer une clÃ© d'API. Ce code va
+ * servir Ã  rÃ©cupÃ©rer les horaires de trains au dÃ©part de montparnasse. Puis
+ * ensuite les afficher sous forme Heure : destination Vous utiliserez votre clÃ©
+ * dans l'url d'appel de l'API. Il ne respecte pas les standards et doit Ãªtre
+ * nettoyÃ© puis refactorÃ© pour Ãªtre rÃ©utilisable et comprÃ©hensible.
  */
 
 public class GetTrajets {
@@ -60,7 +60,7 @@ public class GetTrajets {
 	}
 
 	// TODO
-	// Amiliration de facorisation
+	// Ameliration de facorisation
 	/**
 	 * 
 	 * @param iTextInfo
