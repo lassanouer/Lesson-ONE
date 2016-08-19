@@ -60,7 +60,7 @@ public class GetTrajets {
 	}
 
 	// TODO
-	// Ameliration de facorisation
+	// Amelioration facorisation
 	/**
 	 * 
 	 * @param iTextInfo
