@@ -13,7 +13,7 @@ import org.json.simple.parser.JSONParser;
 public class Utils {
 	/**
 	 * 
-	 * @param url
+	 * @param iurl
 	 * @return
 	 */
 	public static String toBase64(String iurl) {
