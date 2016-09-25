@@ -12,61 +12,22 @@ import com.ov.exercice.common.Constants;
 import com.ov.exercice.common.Utils;
 
 /**
- * Consigne: Enregistrez vous sur https://data.sncf.com/api
- * (http://www.navitia.io/register/) pour récupérer une clé d'API. Ce code va
- * servir à récupérer les horaires de trains au départ de montparnasse. Puis
- * ensuite les afficher sous forme Heure : destination Vous utiliserez votre clé
- * dans l'url d'appel de l'API. Il ne respecte pas les standards et doit être
- * nettoyé puis refactoré pour être réutilisable et compréhensible.
+ * 
+ * @author Anouer Lassoued
+ *
  */
-
 public class GetTrajets {
 
-	private static HttpURLConnection sHttpURLConnection = null;
+	private HttpURLConnection lHttpURLConnection = null;
 
-	public static void getInfoFromJson(String iJsonText) {
-		JSONArray lArray = Utils.jsonArrayParser(iJsonText, Constants.sDepartures);
-		System.out.println(BundleUtilities.getParam(Constants.sSystemConfig, "msg.prochaine.depart"));
-		System.out.println(getInfo(lArray));
-	}
-
-	public static void recupererHorraires() {
-		StringBuilder stringBuilder;
-		try {
-			stringBuilder = Utils.readFromStream(sHttpURLConnection);
-			String lJsonText = stringBuilder.toString();
-			getInfoFromJson(lJsonText);
-		} catch (IOException e) {
-			System.out.println(BundleUtilities.getParam(Constants.sSystemConfig, "msg.error.read.file"));
-		}
-	}
-
-	public static void trainsDepartMontparnasse() throws IOException {
-		sHttpURLConnection = ConnectionProvider.connectToBase();
-		int code = sHttpURLConnection.getResponseCode();
-		if (code == Constants.sDEUXCENTS_UN) {
-			recupererHorraires();
-		}
-	}
-
-	public static void main(String[] args) {
-		try {
-			trainsDepartMontparnasse();
-		} catch (Exception exception) {
-			exception.printStackTrace();
-		} finally {
-			ConnectionProvider.disconnect();
-		}
-	}
-
-	// TODO
-	// Amelioration facorisation
+	// TODO facorisation
 	/**
+	 * parse info from json-object to String
 	 * 
 	 * @param iTextInfo
 	 * @return String informations
 	 */
-	public static String getInfo(JSONArray iTextInfo) {
+	public String getInfo(JSONArray iTextInfo) {
 		String response = "";
 		for (int i = 0; i < iTextInfo.size() - 1; i++) {
 			response.concat(((JSONObject) ((JSONObject) iTextInfo.get(i)).get(Constants.sStop_Date_Time))
@@ -77,6 +38,49 @@ public class GetTrajets {
 		}
 
 		return response;
+	}
+
+	/**
+	 * retour les information des départs de fichier Json
+	 * 
+	 * @param iJsonText
+	 */
+	public void getInfoFromJson(String iJsonText) {
+		JSONArray lArray = Utils.jsonArrayParser(iJsonText, Constants.sDepartures);
+		System.out.println(BundleUtilities.getParam(Constants.sSystemConfig, "msg.prochaine.depart"));
+		System.out.println(getInfo(lArray));
+	}
+
+	/**
+	 * get info from API
+	 */
+	public void recupererHorraires() {
+		StringBuilder stringBuilder;
+		try {
+			stringBuilder = Utils.readFromStream(lHttpURLConnection);
+			String lJsonText = stringBuilder.toString();
+			getInfoFromJson(lJsonText);
+		} catch (IOException e) {
+			System.out.println(BundleUtilities.getParam(Constants.sSystemConfig, "msg.error.read.file"));
+		}
+	}
+
+	/**
+	 * 
+	 * @param args
+	 */
+	public void main(String[] args) {
+		try {
+			lHttpURLConnection = ConnectionProvider.connectToBase();
+			int code = lHttpURLConnection.getResponseCode();
+			if (code == Constants.sDEUXCENTS_UN) {
+				recupererHorraires();
+			}
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		} finally {
+			ConnectionProvider.disconnect();
+		}
 	}
 
 }
