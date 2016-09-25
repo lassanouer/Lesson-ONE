@@ -3,10 +3,19 @@ package com.ov.exercice.common;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * 
+ * @author Anouer Lassoued
+ *
+ */
 public class ConnectionProvider {
 
 	private static HttpURLConnection sHttpURLConnection = null;
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public static HttpURLConnection connectToBase() {
 		URL baseURL;
 		try {
@@ -35,6 +44,10 @@ public class ConnectionProvider {
 		return sHttpURLConnection;
 	}
 
+	
+	/**
+	 * Disconnect
+	 */
 	public static void disconnect() {
 		if (sHttpURLConnection != null) {
 			sHttpURLConnection.disconnect();
