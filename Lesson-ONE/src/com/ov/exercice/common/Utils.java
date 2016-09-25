@@ -10,10 +10,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * 
+ * @author Anouer Lassoued
+ *
+ */
 public class Utils {
 	/**
 	 * 
-	 * @param iurl
+	 * @param url
 	 * @return
 	 */
 	public static String toBase64(String iurl) {
